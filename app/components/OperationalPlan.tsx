@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Truck, ServerIcon, Zap, Home, Users } from "lucide-react";
 
 const dailyOperations = [
@@ -54,20 +54,20 @@ const keyPartnerships = [
   },
 ];
 
-const cardVariants = {
+// Type-safe variants
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
+  visible: (custom: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.2,
+      delay: custom * 0.2,
       duration: 0.8,
-      type: "spring",
+      type: "spring" as const, // <- literal fixes TS
       stiffness: 60,
     },
   }),
 };
-
 export default function OperationalPlan() {
   return (
     <section className="relative py-28 px-6 md:px-12 bg-[#050404] overflow-hidden">
