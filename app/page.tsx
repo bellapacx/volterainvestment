@@ -1,7 +1,7 @@
 // app/page.tsx
 import BusinessUnits from "./components/BusinessUnits";
 import ContactForm from "./components/ContactForm";
-import FinancialPlan from "./components/FinancialPlan";
+
 import Hero from "./components/Hero";
 import MarketingPlan from "./components/MarketingPlan";
 import OperationalPlan from "./components/OperationalPlan";
@@ -63,7 +63,7 @@ export default function HomePage() {
       <Timeline />
       <OperationalPlan />
       <MarketingPlan />
-      <FinancialPlan />
+
       <ContactForm />
     </>
   );
