@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Zap, Calendar } from "lucide-react";
 import { JSX } from "react";
 
@@ -64,7 +64,7 @@ const milestones: Milestone[] = [
 ];
 
 export default function Timeline() {
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i: number) => ({
       opacity: 1,

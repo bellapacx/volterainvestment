@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import {
   BatteryCharging,
   Truck,
@@ -43,15 +43,16 @@ export default function BusinessUnits() {
     },
   ];
 
-  const cardVariants = {
+  // Type-safe Framer Motion variants
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
-    visible: (i: number) => ({
+    visible: (custom: number) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.2,
+        delay: custom * 0.2,
         duration: 0.8,
-        type: "spring",
+        type: "spring" as const, // TS-safe literal
         stiffness: 60,
       },
     }),
@@ -77,7 +78,7 @@ export default function BusinessUnits() {
           {units.map((unit, idx) => (
             <motion.div
               key={idx}
-              custom={idx}
+              custom={idx} // passes index to variant function
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}

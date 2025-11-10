@@ -1,18 +1,19 @@
 "use client";
 
 import { Mail, Phone } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function ContactForm() {
-  const itemVariants = {
+  // Type-safe variants
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
+    visible: (custom: number) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.2,
+        delay: custom * 0.2,
         duration: 0.8,
-        type: "spring",
+        type: "spring" as const, // TS literal type
         stiffness: 60,
       },
     }),
@@ -58,7 +59,7 @@ export default function ContactForm() {
             <Mail size={28} className="text-[#FFD700]" />
             <div>
               <p className="font-semibold text-[#FFD700]">Email</p>
-              <p className="text-[#FFE066]">contact@volterainvestments.dj</p>
+              <p className="text-[#FFE066]">contact@volterainvestments.com</p>
             </div>
           </div>
           <div className="flex items-center gap-4">

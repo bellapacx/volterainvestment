@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Megaphone, Users, Calendar, Gift, Coffee } from "lucide-react";
 
 const strategies = [
@@ -36,7 +36,7 @@ const strategies = [
   },
 ];
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
