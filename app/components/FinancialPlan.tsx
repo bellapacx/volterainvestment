@@ -85,7 +85,7 @@ export default function FinancialPlan() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] to-[#FFE066]"
+          className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-[#FFD700] bg-gradient-to-r from-[#FFD700] to-[#FFE066]"
         >
           Financial Plan
         </motion.h2>

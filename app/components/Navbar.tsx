@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-
+import Image from "next/image";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,12 +20,19 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-[#050404] border-b-2 border-[#FFD700] px-6 md:px-12 py-4 flex justify-between items-center relative z-50">
+    <nav className="bg-[#050404] border-b-2 border-[#FFD700] px-6 md:px-12 py-1 flex justify-between items-center relative z-50">
       {/* Logo */}
       <Link href="/">
-        <h1 className="text-[#FFD700] font-bold text-2xl cursor-pointer">
-          Voltera Investments
-        </h1>
+        <div className="ml-20">
+          <Image
+            src="/logo.png"
+            alt="Voltera Investments Logo"
+            width={80} // desired width
+            height={12} // keep navbar height consistent
+            className="object-contain"
+            priority
+          />
+        </div>
       </Link>
 
       {/* Desktop Links */}
