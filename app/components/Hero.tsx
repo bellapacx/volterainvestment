@@ -1,8 +1,23 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { Truck, Zap, Smartphone } from "lucide-react";
 
 export default function Hero() {
+  const floatingVariants: Variants = {
+    float: {
+      y: [0, -40, 0], // vertical movement
+      x: [0, 10, -20, 0], // optional horizontal drift
+      rotate: [0, 10, -10, 0],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Video Background */}
@@ -15,7 +30,7 @@ export default function Hero() {
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
 
-      {/* Optional Semi-Transparent Overlay for readability */}
+      {/* Semi-Transparent Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/30"></div>
 
       {/* Content */}
@@ -34,7 +49,6 @@ export default function Hero() {
             className="inline-flex items-center gap-2 bg-[#FFD700]/90 text-[#050404] font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-2xl hover:bg-[#FFE066]/90 transition-all duration-300 transform hover:-translate-y-1"
           >
             Learn More
-            <ArrowRight size={18} />
           </a>
           <a
             href="/contact"
@@ -45,7 +59,32 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Optional Neon Glow at bottom */}
+      {/* Animated SVG Icons */}
+      <motion.div
+        variants={floatingVariants}
+        animate="float"
+        className="absolute top-1/5 left-1/4 text-[#FFD700]/70"
+      >
+        <Truck size={48} />
+      </motion.div>
+
+      <motion.div
+        variants={floatingVariants}
+        animate="float"
+        className="absolute top-1/2 right-1/3 text-[#FFE066]/60"
+      >
+        <Zap size={48} />
+      </motion.div>
+
+      <motion.div
+        variants={floatingVariants}
+        animate="float"
+        className="absolute bottom-1/3 left-1/2 text-[#FFD700]/50"
+      >
+        <Smartphone size={48} />
+      </motion.div>
+
+      {/* Neon Glow at bottom */}
       <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[#FFD700]/50 to-[#FFE066]/30 blur-3xl animate-pulse-slow"></div>
     </section>
   );
